@@ -3,12 +3,18 @@ import initialStore from "./initialStore";
 const GET_POPULAR = "GET_POPULAR"
 const GET_CURRENT_PAGE = "GET_CURRENT_PAGE"
 const GET_SEARCH_QUERY = "GET_SEARCH_QUERY"
+const GET_TOPRATED = "GET_TOPRATED"
 
 
 
 export default function PopularMoviesReducer(state = initialStore, action) {
     switch(action.type) {
         case GET_POPULAR:
+            return {
+                ...state,
+                results: action.payload.results
+            }
+        case GET_TOPRATED:
             return {
                 ...state,
                 results: action.payload.results
@@ -29,5 +35,8 @@ export default function PopularMoviesReducer(state = initialStore, action) {
 }
 
 export const setPopMovies = (popmovies) => ({type:GET_POPULAR, payload:popmovies});
+export const setTopRatedMovies = (popmovies) => ({type:GET_TOPRATED, payload:popmovies});
+
+
 export const setSearchQuery = (searchQuery) => ({type:GET_SEARCH_QUERY, payload:searchQuery});
 export const setCurrentPage = (currentPage) => ({type:GET_CURRENT_PAGE, payload:currentPage});
