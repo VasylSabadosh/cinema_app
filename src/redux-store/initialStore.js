@@ -9,7 +9,8 @@ const initialStore = {
       films:[]
     },
     searchQuery:'',
-
+    selectedMovie: {},
+    movieDetails:{},
   };
 
 export default initialStore;

@@ -3,21 +3,27 @@ import initialStore from "./initialStore";
 const GET_POPULAR = "GET_POPULAR"
 const GET_CURRENT_PAGE = "GET_CURRENT_PAGE"
 const GET_SEARCH_QUERY = "GET_SEARCH_QUERY"
-const GET_TOPRATED = "GET_TOPRATED"
+const SET_SELECTED_MOVIE = "SET_SELECTED_MOVIE"
+const SET_MOVIE_DETAILS = "SET_MOVIE_DETAILS"
 
 
 
 export default function PopularMoviesReducer(state = initialStore, action) {
-    switch(action.type) {
+    switch (action.type) {
         case GET_POPULAR:
             return {
                 ...state,
                 results: action.payload.results
             }
-        case GET_TOPRATED:
+        case SET_SELECTED_MOVIE:
             return {
                 ...state,
-                results: action.payload.results
+                selectedMovie: action.payload
+            }
+        case SET_MOVIE_DETAILS:
+            return {
+                ...state,
+                movieDetails: action.payload
             }
         case GET_CURRENT_PAGE:
             return {
@@ -34,9 +40,9 @@ export default function PopularMoviesReducer(state = initialStore, action) {
     }
 }
 
-export const setPopMovies = (popmovies) => ({type:GET_POPULAR, payload:popmovies});
-export const setTopRatedMovies = (popmovies) => ({type:GET_TOPRATED, payload:popmovies});
+export const setPopMovies = (popmovies) => ({ type: GET_POPULAR, payload: popmovies });
+export const setSelectedMovie = (selectedMovie) => ({ type: SET_SELECTED_MOVIE, payload: selectedMovie });
+export const setMovieDetails = (movie) => ({type: SET_MOVIE_DETAILS, payload: movie});
 
-
-export const setSearchQuery = (searchQuery) => ({type:GET_SEARCH_QUERY, payload:searchQuery});
-export const setCurrentPage = (currentPage) => ({type:GET_CURRENT_PAGE, payload:currentPage});
+export const setSearchQuery = (searchQuery) => ({ type: GET_SEARCH_QUERY, payload: searchQuery });
+export const setCurrentPage = (currentPage) => ({ type: GET_CURRENT_PAGE, payload: currentPage });

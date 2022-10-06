@@ -1,7 +1,5 @@
 import axios from 'axios';
-
 import { setPopMovies } from '../redux-store/PopularMoviesReducer';
-import { setTopRatedMovies } from '../redux-store/PopularMoviesReducer';
 
 // https://api.themoviedb.org/3/movie/top_rated?api_key=08d43d5667c78e53fbccfb0aa75131fd&language=en-US&page=1
 // https://api.themoviedb.org/3/discover/movie?api_key=08d43d5667c78e53fbccfb0aa75131fd&language=en-US
@@ -30,7 +28,7 @@ export const getTopRatedMovies = ( currentPage, searchQuery ) => {
 
         const response = await axios.get(url)
 
-        dispatch(setTopRatedMovies(response.data))
+        dispatch(setPopMovies(response.data))
     }
 }
 
@@ -43,7 +41,7 @@ export const getUpcomingMovies = ( currentPage, searchQuery ) => {
 
         const response = await axios.get(url)
 
-        dispatch(setTopRatedMovies(response.data))
+        dispatch(setPopMovies(response.data))
     }
 }
 
@@ -56,7 +54,7 @@ export const getNowPlayingMovies = ( currentPage, searchQuery ) => {
 
         const response = await axios.get(url)
 
-        dispatch(setTopRatedMovies(response.data))
+        dispatch(setPopMovies(response.data))
     }
 }
 
