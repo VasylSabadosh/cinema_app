@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getPopularMovies } from '../../Actions/responsePopular';
 import { createPages } from './Helper';
 import {setMovieDetails} from '../../redux-store/PopularMoviesReducer';
+import Pagination from "../Pagination/Pagination";
+
 
 const Main = () => {
 
@@ -19,11 +21,11 @@ const Main = () => {
 
     const onClickDetail = (movie) => {
         dispatch(setMovieDetails(movie));
-        console.log(movie.title);
     }
 
     useEffect(()=>{
-        dispatch(getPopularMovies( currentPage, searchQuery))
+        dispatch(getPopularMovies( currentPage, searchQuery));
+        console.log(popmovies[0])
     },[currentPage, searchQuery]);
 
 
@@ -37,6 +39,8 @@ const Main = () => {
                 }
 
             </div>
+            <Pagination />
+
 
         </div>
     );

@@ -12,6 +12,7 @@ const SubHeader = () => {
     const currentPage = useSelector(state => state.popmovies.currentPage);
     const searchQuery = useSelector(state => state.popmovies.searchQuery);
 
+
     const PopMovies = () => {
         dispatch(getPopularMovies( currentPage, searchQuery))
     }

@@ -1,0 +1,31 @@
+.movie_details {
+    padding: 10px;
+}
+
+.movie_details_description {
+    display: flex;
+    gap: 20px;
+}
+
+.movie_details_description_right {
+    width: 100%;
+
+}
+
+.movie_details_title {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.movie_details_trailer {
+    background-color: black;
+}
+
+.trailer {
+    width: 100%;
+    text-align: center;
+}
+
+iframe {
+    margin: 50px;
+}

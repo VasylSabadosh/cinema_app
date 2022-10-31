@@ -1,25 +1,40 @@
 import React from 'react';
-import {useSelector} from "react-redux";
-import {NavLink} from "react-router-dom";
-import "./Header.scss"
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+import "./Header.scss";
+import { GoogleLogin } from '@react-oauth/google';
+import { useDispatch } from 'react-redux';
+import { setAuth } from '../../redux-store/PopularMoviesReducer';
+
 
 
 const Header = () => {
-    const auth = useSelector(state => state.auth);
-    return (
-      <header className="header">
+  const auth = useSelector(state => state.auth);
+  const dispatch = useDispatch();
 
-          <div className='left'>
-            <NavLink to="/">Cinema App</NavLink>
-          </div>
+  return (
+    <header className="header">
 
-          <div className='right'>
-            {!auth ?<NavLink to="/login">Login</NavLink>:<NavLink to="/logout">LogOut</NavLink>}
-            <NavLink to="/about">Registration</NavLink>
-          </div>
+      <div className='left'>
+        <NavLink to="/">Cinema App</NavLink>
+      </div>
 
-      </header>
-    );
+      <div className='right'>
+        <GoogleLogin className='googleBtn'
+          onSuccess={auth => {
+            auth = true;
+            dispatch(setAuth(auth));
+            console.log(auth);
+          }}
+          onError={() => {
+            console.log('Login Failed');
+          }}
+        />;
+      </div>
+
+
+    </header>
+  );
 
 
 }
