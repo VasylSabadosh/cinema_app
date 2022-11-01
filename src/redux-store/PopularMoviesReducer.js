@@ -43,7 +43,7 @@ export default function PopularMoviesReducer(state = initialStore, action) {
         case GET_AUTH:
             return {
                 ...state,
-                ayth: action.payload
+                auth: action.payload
             }
         default:
             return state;
@@ -59,4 +59,4 @@ export const setMovieTrailer = (trailer) => ({type: GET_MOVIE_TRAILER, payload: 
 export const setSearchQuery = (searchQuery) => ({ type: GET_SEARCH_QUERY, payload: searchQuery });
 export const setCurrentPage = (currentPage) => ({ type: GET_CURRENT_PAGE, payload: currentPage });
 
-export const setAuth = (ayth) => ({type: GET_AUTH, payload: ayth});
+export const setAuth = (auth) => ({type: GET_AUTH, payload: auth});

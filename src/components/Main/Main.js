@@ -15,6 +15,7 @@ const Main = () => {
     const currentPage = useSelector(state => state.popmovies.currentPage);
     const searchQuery = useSelector(state => state.popmovies.searchQuery);
 
+
     const totalPages = 500;
     const pages = [];
     createPages(pages, totalPages, currentPage);
@@ -25,7 +26,6 @@ const Main = () => {
 
     useEffect(()=>{
         dispatch(getPopularMovies( currentPage, searchQuery));
-        console.log(popmovies[0])
     },[currentPage, searchQuery]);
 
 

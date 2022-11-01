@@ -9,7 +9,7 @@ import { setAuth } from '../../redux-store/PopularMoviesReducer';
 
 
 const Header = () => {
-  const auth = useSelector(state => state.auth);
+  const auth = useSelector(state => state.popmovies.auth);
   const dispatch = useDispatch();
 
   return (
@@ -19,18 +19,20 @@ const Header = () => {
         <NavLink to="/">Cinema App</NavLink>
       </div>
 
-      <div className='right'>
+      {!auth && (<div className='right'>
         <GoogleLogin className='googleBtn'
           onSuccess={auth => {
             auth = true;
             dispatch(setAuth(auth));
-            console.log(auth);
+            console.log(GoogleLogin);
           }}
           onError={() => {
             console.log('Login Failed');
           }}
         />;
       </div>
+      )}
+
 
 
     </header>
