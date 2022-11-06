@@ -11,6 +11,7 @@ const MovieDetails = () => {
     const movieCredits = useSelector(state => state.popmovies.movieCredits);
     const allActors = movieCredits.cast;
     const actors = allActors.slice(0, 10);
+    console.log(allActors);
     const movieTrailer = useSelector(state => state.popmovies.movieTrailer);
     const posterPath = movieDetails.poster_path;
 
