@@ -11,7 +11,6 @@ const MovieDetails = () => {
     const movieCredits = useSelector(state => state.popmovies.movieCredits);
     const allActors = movieCredits.cast;
     const actors = allActors.slice(0, 10);
-    console.log(allActors);
     const movieTrailer = useSelector(state => state.popmovies.movieTrailer);
     const posterPath = movieDetails.poster_path;
 
@@ -19,7 +18,6 @@ const MovieDetails = () => {
         dispatch(getMovieTrailer(movieDetails.id));
     }, []);
     const url = 'https://www.youtube.com/embed/'+movieTrailer;
-
 
     return (
         <div className='movie_details'>
@@ -37,7 +35,6 @@ const MovieDetails = () => {
                         <span> {movieDetails.overview}</span>
                     </div>
                 </div>
-
             </div>
 
             <div className='movie_details_trailer'>
@@ -45,12 +42,6 @@ const MovieDetails = () => {
                     <iframe width="640" height="360" src={url} ></iframe>
                 </div>
             </div>
-
-            <div>
-
-            </div>
-
-
 
         </div>
     );

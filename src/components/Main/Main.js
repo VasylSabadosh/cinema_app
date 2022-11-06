@@ -23,7 +23,6 @@ const Main = () => {
     const onClickDetail = (movie, id) => {
         dispatch(setMovieDetails(movie));
         dispatch(getMovieCredits(id));
-
     }
 
     useEffect(()=>{
