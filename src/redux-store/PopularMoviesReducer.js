@@ -5,6 +5,7 @@ const GET_CURRENT_PAGE = "GET_CURRENT_PAGE"
 const GET_SEARCH_QUERY = "GET_SEARCH_QUERY"
 const SET_SELECTED_MOVIE = "SET_SELECTED_MOVIE"
 const SET_MOVIE_DETAILS = "SET_MOVIE_DETAILS"
+const SET_MOVIE_CREDITS = "SET_MOVIE_CREDITS"
 const GET_MOVIE_TRAILER = "GET_MOVIE_TRAILER"
 const GET_AUTH = "GET_AUTH"
 
@@ -24,6 +25,11 @@ export default function PopularMoviesReducer(state = initialStore, action) {
             return {
                 ...state,
                 movieDetails: action.payload
+            }
+        case SET_MOVIE_CREDITS:
+            return {
+                ...state,
+                movieCredits: action.payload
             }
         case GET_CURRENT_PAGE:
             return {
@@ -54,6 +60,7 @@ export const setPopMovies = (popmovies) => ({ type: GET_POPULAR, payload: popmov
 
 export const setSelectedMovie = (selectedMovie) => ({ type: SET_SELECTED_MOVIE, payload: selectedMovie });
 export const setMovieDetails = (movie) => ({type: SET_MOVIE_DETAILS, payload: movie});
+export const setMovieCredits = (credits) => ({type: SET_MOVIE_CREDITS, payload: credits});
 export const setMovieTrailer = (trailer) => ({type: GET_MOVIE_TRAILER, payload: trailer});
 
 export const setSearchQuery = (searchQuery) => ({ type: GET_SEARCH_QUERY, payload: searchQuery });

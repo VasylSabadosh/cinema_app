@@ -1,11 +1,6 @@
 import axios from 'axios';
-import { setPopMovies, setTopRated } from '../redux-store/PopularMoviesReducer';
-import { setMovieTrailer } from '../redux-store/PopularMoviesReducer';
+import { setPopMovies, setMovieTrailer, setMovieCredits } from '../redux-store/PopularMoviesReducer';
 
-// https://api.themoviedb.org/3/movie/top_rated?api_key=08d43d5667c78e53fbccfb0aa75131fd&language=en-US&page=1
-// https://api.themoviedb.org/3/discover/movie?api_key=08d43d5667c78e53fbccfb0aa75131fd&language=en-US
-// const MovieTrailer = 'https://api.themoviedb.org/3/movie/'+Id+'/videos?api_key=08d43d5667c78e53fbccfb0aa75131fd&language=en-US'
-// const Trailer = 'https://www.youtube.com/watch?v='+trailerKey;
 
 export const getPopularMovies = ( currentPage, searchQuery ) => {
     return async (dispatch) => {
@@ -70,3 +65,13 @@ export const getMovieTrailer = ( id ) => {
     }
 }
 
+export const getMovieCredits = ( id ) => {
+    return async (dispatch) => {
+
+        const url = 'https://api.themoviedb.org/3/movie/'+ id +'/credits?api_key=08d43d5667c78e53fbccfb0aa75131fd&language=en-US';
+
+        const response = await axios.get(url)
+
+        dispatch(setMovieCredits(response.data))
+    }
+}

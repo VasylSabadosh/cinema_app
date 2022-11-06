@@ -7,17 +7,17 @@ const FilmElement = ({movie, onClickDetail}) => {
     const posterPath = movie.poster_path;
     const auth = useSelector(state => state.popmovies.auth);
 
-    useEffect(()=>{
+       useEffect(()=>{
 
     },[auth]);
 
     return (
         <NavLink to = "/movie-details">
-            <div className='FilmElement' onClick={() => onClickDetail(movie)}>
+            <div className='FilmElement' onClick={ () => onClickDetail(movie, movie.id) }>
                 <div className='poster'>
                     <img className='img' src= {"https://image.tmdb.org/t/p/w500/"+posterPath} alt="title"></img>
                 </div>
-                {auth && (<span className='heart'>&#9825;</span>)}
+                {auth && (<span className='heart' onClick={ event => event.stopPropagation() }></span>) }
 
 
                 <h1 className='title'>

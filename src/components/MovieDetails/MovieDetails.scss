@@ -1,20 +1,28 @@
 .movie_details {
     padding: 10px;
+    color: teal;
 }
 
 .movie_details_description {
     display: flex;
     gap: 20px;
+    margin-bottom: 5rem;
 }
 
 .movie_details_description_right {
-    width: 100%;
-
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .movie_details_title {
     text-align: center;
     text-transform: uppercase;
+}
+
+.movieDetails_overview {
+    font-size: 1.5rem;
 }
 
 .movie_details_trailer {

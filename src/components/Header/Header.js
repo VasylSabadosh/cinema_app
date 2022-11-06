@@ -22,8 +22,7 @@ const Header = () => {
       {!auth && (<div className='right'>
         <GoogleLogin className='googleBtn'
           onSuccess={auth => {
-            auth = true;
-            dispatch(setAuth(auth));
+            dispatch(setAuth(true));
             console.log(GoogleLogin);
           }}
           onError={() => {

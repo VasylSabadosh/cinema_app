@@ -1,0 +1,31 @@
+h5 {
+    margin: 0;
+}
+.movieActors {
+    display: flex;
+    flex-wrap: wrap
+}
+
+.movieActor {
+    position: relative;
+    font-weight: 200;
+    font-size: larger;
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        .movieActor_poster {
+            display: block;
+        }
+    }
+}
+
+.movieActor_poster {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 20%;
+}
+
+.movieActor_poster_img {
+    width: 5rem;
+}

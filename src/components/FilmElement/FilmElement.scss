@@ -68,13 +68,21 @@
 
 .heart {
     position: absolute;
-    top: 5%;
+    top: 2%;
     right: 10%;
     font-size: 20px;
     color: rgb(255, 230, 0);
+    padding: 0;
 
-    &:hover {
-        opacity: .8;
+    &::after {
+        content: "\2661";
     }
-
+    &:hover {
+        &::after {
+            content: "\2665";
+        }
+    }
+    &:active {
+        color: red;
+    }
 }

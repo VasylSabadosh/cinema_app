@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import './Main.css';
 import FilmElement from '../FilmElement/FilmElement';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPopularMovies } from '../../Actions/responsePopular';
+import { getPopularMovies, getMovieCredits } from '../../Actions/responsePopular';
 import { createPages } from './Helper';
-import {setMovieDetails} from '../../redux-store/PopularMoviesReducer';
+import { setMovieDetails } from '../../redux-store/PopularMoviesReducer';
 import Pagination from "../Pagination/Pagination";
 
 
@@ -20,8 +20,10 @@ const Main = () => {
     const pages = [];
     createPages(pages, totalPages, currentPage);
 
-    const onClickDetail = (movie) => {
+    const onClickDetail = (movie, id) => {
         dispatch(setMovieDetails(movie));
+        dispatch(getMovieCredits(id));
+
     }
 
     useEffect(()=>{

@@ -11,6 +11,7 @@ const initialStore = {
     searchQuery:'',
     selectedMovie: {},
     movieDetails:{},
+    movieCredits:[],
     movieTrailer:{},
     genres: [
       {
