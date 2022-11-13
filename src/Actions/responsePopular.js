@@ -72,6 +72,6 @@ export const getMovieCredits = ( id ) => {
 
         const response = await axios.get(url)
 
-        dispatch(setMovieCredits(response.data))
+        dispatch(setMovieCredits(response.data));
     }
 }

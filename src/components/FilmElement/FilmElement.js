@@ -12,8 +12,8 @@ const FilmElement = ({movie, onClickDetail}) => {
     },[auth]);
 
     return (
-        <NavLink to = "/movie-details">
-            <div className='FilmElement' onClick={ () => onClickDetail(movie, movie.id) }>
+        <NavLink to = {`movie/${movie.id}/${movie.title}/`}>
+            <div className='FilmElement' onClick={ () => onClickDetail(movie) }>
                 <div className='poster'>
                     <img className='img' src= {"https://image.tmdb.org/t/p/w500/"+posterPath} alt="title"></img>
                 </div>

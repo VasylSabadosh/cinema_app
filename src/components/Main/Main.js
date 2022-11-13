@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './Main.css';
 import FilmElement from '../FilmElement/FilmElement';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPopularMovies, getMovieCredits } from '../../Actions/responsePopular';
+import { getPopularMovies, getMovieCredits, getMovieTrailer } from '../../Actions/responsePopular';
 import { createPages } from './Helper';
 import { setMovieDetails } from '../../redux-store/PopularMoviesReducer';
 import Pagination from "../Pagination/Pagination";
@@ -12,6 +12,7 @@ const Main = () => {
 
     const dispatch = useDispatch();
     const popmovies = useSelector(state => state.popmovies.results);
+
     const currentPage = useSelector(state => state.popmovies.currentPage);
     const searchQuery = useSelector(state => state.popmovies.searchQuery);
 
@@ -20,9 +21,10 @@ const Main = () => {
     const pages = [];
     createPages(pages, totalPages, currentPage);
 
-    const onClickDetail = (movie, id) => {
+    const onClickDetail = (movie) => {
         dispatch(setMovieDetails(movie));
-        dispatch(getMovieCredits(id));
+        dispatch(getMovieCredits(movie.id));
+        dispatch(getMovieTrailer(movie.id));
     }
 
     useEffect(()=>{

@@ -6,9 +6,8 @@ import { GoogleLogin } from '@react-oauth/google';
 import { useDispatch } from 'react-redux';
 import { setAuth } from '../../redux-store/PopularMoviesReducer';
 
-
-
 const Header = () => {
+
   const auth = useSelector(state => state.popmovies.auth);
   const dispatch = useDispatch();
 
@@ -32,10 +31,10 @@ const Header = () => {
       </div>
       )}
 
-
-
     </header>
+
   );
+
 
 
 }

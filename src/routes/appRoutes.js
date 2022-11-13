@@ -15,10 +15,15 @@ function AppRoutes() {
 
           <Route path="/" element={<Layout/>}>
             <Route index element={<Movies/>}/>
-            <Route path="/get_upcoming" element={<Movies/>}/>
-            <Route path="/get_top_rated" element={<Movies/>}/>
-            <Route path="/now_playing" element={<Movies/>}/>
-            <Route path="/movie-details" element={<MovieDetails/>}/>
+            <Route path="get_upcoming" element={<Movies/>}/>
+            <Route path="get_top_rated" element={<Movies/>}/>
+            <Route path="now_playing" element={<Movies/>}/>
+
+            <Route path="movie/:id/:title" element={<MovieDetails/>}/>
+            <Route path="get_upcoming/movie/:id/:title" element={<MovieDetails/>}/>
+            <Route path="get_top_rated/movie/:id/:title" element={<MovieDetails/>}/>
+            <Route path="now_playing/movie/:id/:title" element={<MovieDetails/>}/>
+
 
             <Route path="*" element={<NotFoundPage/>}/>
           </Route>

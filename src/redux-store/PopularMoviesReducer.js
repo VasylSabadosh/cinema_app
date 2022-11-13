@@ -60,7 +60,7 @@ export const setPopMovies = (popmovies) => ({ type: GET_POPULAR, payload: popmov
 
 export const setSelectedMovie = (selectedMovie) => ({ type: SET_SELECTED_MOVIE, payload: selectedMovie });
 export const setMovieDetails = (movie) => ({type: SET_MOVIE_DETAILS, payload: movie});
-export const setMovieCredits = (credits) => ({type: SET_MOVIE_CREDITS, payload: credits});
+export const setMovieCredits = (movieCredits) => ({type: SET_MOVIE_CREDITS, payload: movieCredits});
 export const setMovieTrailer = (trailer) => ({type: GET_MOVIE_TRAILER, payload: trailer});
 
 export const setSearchQuery = (searchQuery) => ({ type: GET_SEARCH_QUERY, payload: searchQuery });
